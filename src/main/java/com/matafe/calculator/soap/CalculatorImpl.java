@@ -1,4 +1,4 @@
-package com.matafe.calculator;
+package com.matafe.calculator.soap;
 
 import javax.jws.WebService;
 
@@ -8,7 +8,7 @@ import javax.jws.WebService;
  * @author matafe
  */
 // endpointInterface -> delegate @WebService for the Interface
-@WebService(endpointInterface = "com.matafe.calculator.Calculator", serviceName = "CalculatorService", portName = "CalculatorPort")
+@WebService(endpointInterface = "com.matafe.calculator.soap.Calculator", serviceName = "CalculatorService", portName = "CalculatorPort")
 public class CalculatorImpl implements Calculator {
 
 	@Override

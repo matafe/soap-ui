@@ -1,14 +1,15 @@
-package com.matafe.person;
+package com.matafe.person.soap;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlElement;
+
+import com.matafe.person.Person;
+import com.matafe.person.PersonManager;
 
 /**
  * Person Service Implementation - Endpoint.
@@ -18,32 +19,23 @@ import javax.xml.bind.annotation.XmlElement;
 @WebService
 public class PersonService {
 
-	private final Map<String, Person> persons = new HashMap<>();
-
-	public PersonService() {
-		// adding some values for start...
-		for (int i = 1; i <= 3; i++) {
-			String name = "Person_" + i;
-			persons.put(name, new Person(name, "Address_" + i));
-		}
-	}
-
 	@WebMethod
 	@WebResult(name = "person")
 	public Collection<Person> findPersons() {
-		return persons.values();
+		return PersonManager.getInstance().findAll(null);
 	}
 
 	@WebMethod
 	public String savePerson(@WebParam(name = "person") @XmlElement(required = true) Person person) {
-		persons.put(person.getName(), person);
+		PersonManager.getInstance().add(person);
 		return String.format("Person '%s' added", person.getName());
 	}
 
 	@WebMethod
 	public String removeAllPersons() {
-		int size = persons.size();
-		persons.clear();
+		PersonManager personManager = PersonManager.getInstance();
+		int size = personManager.count();
+		personManager.removeAll();
 		return String.format("All %d person removed", size);
 	}
 

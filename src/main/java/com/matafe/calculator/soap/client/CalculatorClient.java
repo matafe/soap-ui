@@ -1,12 +1,12 @@
-package com.matafe.calculator.client;
+package com.matafe.calculator.soap.client;
 
 import java.net.URL;
 
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 
-import com.matafe.Publisher;
-import com.matafe.calculator.Calculator;
+import com.matafe.calculator.soap.Calculator;
+import com.matafe.soap.Publisher;
 
 /**
  * Calculator Client. (Consumer)

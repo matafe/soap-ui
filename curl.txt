@@ -1,0 +1,17 @@
+PersonResource samples
+
+# Find all persons
+curl -i http://localhost:8080/soap-ui/person
+curl -i http://localhost:8080/soap-ui/person?sortBy=creationDate
+
+# Find a person by name
+curl -i http://localhost:8080/soap-ui/person/Person_2
+
+# Remove a person
+curl -i http://localhost:8080/soap-ui/person/remove/Person_1
+
+# Remove all persons
+curl -i http://localhost:8080/soap-ui/person/removeAll
+
+# Add a new person
+curl -i -XPOST -H "Content-Type: application/json" -d '{"name":"Mickey"}' http://localhost:8080/soap-ui/person/add

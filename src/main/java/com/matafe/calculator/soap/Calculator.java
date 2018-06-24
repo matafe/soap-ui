@@ -1,4 +1,4 @@
-package com.matafe.calculator;
+package com.matafe.calculator.soap;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;

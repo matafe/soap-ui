@@ -1,5 +1,7 @@
 package com.matafe.person;
 
+import java.util.Date;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -11,13 +13,15 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author matafe
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "Person")
+@XmlRootElement(name = "person")
 public class Person {
 
 	@XmlElement(name = "name", required = true)
 	private String name;
 
 	private String address;
+
+	private Date creationDate;
 
 	public Person() {
 		super();
@@ -43,6 +47,14 @@ public class Person {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
 	}
 
 	@Override
